@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "concurrently": "^9.0.1",
-    "sass": "^1.80.3"
+    "sass": "^1.80.3",
+    "wait-on": "^8.0.1"
   }
 }
