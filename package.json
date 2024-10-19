@@ -18,5 +18,8 @@
   "homepage": "https://github.com/MatthewTrainer7/ocean-ar-task#readme",
   "dependencies": {
     "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "sass": "^1.80.3"
   }
 }
