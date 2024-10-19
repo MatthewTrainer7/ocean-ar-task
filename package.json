@@ -4,7 +4,7 @@
   "description": "A web application that links to a web-based AR experience.",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently \"nodemon server.js\" \"npm run watch-css\" \"browser-sync start --proxy http://localhost:3000 --files 'public/*'\"",
+    "start": "concurrently \"nodemon server.js\" \"npm run watch-css\" \"browser-sync start --proxy http://localhost:3000 --port 3001 --files 'public/*'\"",
     "watch-css": "sass --watch scss/styles.scss:public/styles.css"
   },
   "repository": {
