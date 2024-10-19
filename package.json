@@ -4,7 +4,9 @@
   "description": "A web application that links to a web-based AR experience.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js & open http://localhost:3000"
+    "start": "concurrently \"node server.js\" \"npm run watch-css\"",
+    "build-css": "sass scss/styles.scss public/styles.css",
+    "watch-css": "sass --watch scss/styles.scss:public/styles.css"
   },
   "repository": {
     "type": "git",
