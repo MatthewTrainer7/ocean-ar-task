@@ -1,14 +1,32 @@
-body {
-  background-color: blueviolet;
-}
-
 #home {
+  background-color: greenyellow;
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#shoes {
+  /* CSS for the back button */
+  /* Optionally, add some hover effect */
+}
+#shoes .back-btn {
+  position: fixed; /* Ensures it's fixed to the screen */
+  top: 10px; /* Position it at the top */
+  left: 10px; /* Align it to the left side */
+  padding: 10px 20px;
+  background-color: #ff6347; /* A visible color, you can change it */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000; /* Ensures it's on top of all AR content */
+}
+#shoes .back-btn:hover {
+  background-color: #ff4500;
 }
 
 /*# sourceMappingURL=styles.css.map */

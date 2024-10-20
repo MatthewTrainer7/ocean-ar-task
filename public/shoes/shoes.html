@@ -5,15 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AR Test on Shoes Page</title>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/AR-js-org/AR.js/3.3.2/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.rawgit.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
+  <style>
+    #message {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+      display: none; /* Hidden by default */
+    }
+  </style>
 </head>
 <body>
+  <div id="message">Marker Found!</div> <!-- Message div -->
+
   <a-scene embedded arjs>
-    <a-marker preset="hiro">
-      <a-box position='0 0.5 0' material='color: yellow;'></a-box>
+    <a-marker id="marker" preset="hiro">
+      <a-entity 
+        gltf-model="url(https://cdn.rawgit.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb)" 
+        scale="0.1 0.1 0.1" 
+        position="0 0 0"></a-entity>
     </a-marker>
+    
+    <a-entity light="type: ambient; color: #FFF"></a-entity>
     <a-entity camera></a-entity>
   </a-scene>
-  <script src="shoes/shoes.js"></script>
+  
+  <script src="shoes.js"></script>
+  <script>
+    // Retrieve the marker and message elements
+    const marker = document.querySelector('#marker');
+    const message = document.querySelector('#message');
+
+    // Add event listeners for markerFound and markerLost events
+    marker.addEventListener('markerFound', () => {
+      message.style.display = 'block'; // Show the message
+      message.textContent = 'Marker Found!'; // Update message text
+    });
+
+    marker.addEventListener('markerLost', () => {
+      message.style.display = 'none'; // Hide the message
+    });
+  </script>
 </body>
 </html>
