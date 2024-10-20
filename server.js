@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Start the server on port 3000 or the environment's defined port
+app.get('/shoes', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/shoes.html'));
+});
+
+// Start the server on port 3000
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

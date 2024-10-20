@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Sneaker</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/pages/shoes/shoes.js"></script>
+</head>
+<style>
+  /* CSS for the back button */
+  .back-btn {
+    position: fixed; /* Ensures it's fixed to the screen */
+    top: 10px;       /* Position it at the top */
+    left: 10px;      /* Align it to the left side */
+    padding: 10px 20px;
+    background-color: #ff6347; /* A visible color, you can change it */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000;   /* Ensures it's on top of all AR content */
+  }
+
+  /* Optionally, add some hover effect */
+  .back-btn:hover {
+    background-color: #ff4500;
+  }
+</style>
+<body>
+  <h1>View Your Sneaker in AR</h1>
+  <button class="back-btn" onclick="goBack()">Back</button>
+
+  <!-- AR.js library -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.7/aframe/build/aframe-ar.js"></script>
+
+  <!-- AR Content (This will load after button click) -->
+  <a-scene embedded arjs>
+    <a-marker preset="hiro" id="marker">
+      <!-- The model will be added here dynamically based on the selection -->
+      <a-entity id="shoe-model" position="0 0 0" scale="0.5 0.5 0.5"></a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <script>
+    function goBack() {
+      window.location.href = '/index.html';
+    }
+
+    // Get the query parameter to determine which sneaker to load
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedColor = urlParams.get('color');
+    const modelEntity = document.getElementById('shoe-model');
+
+    // Load the corresponding GLB model based on the selection
+    if (selectedColor === 'Blue_Orange') {
+      modelEntity.setAttribute('gltf-model', 'url(assets/2d/Sneaker_Blue_Orange.glb)');
+    } else if (selectedColor === 'Red_Blue') {
+      modelEntity.setAttribute('gltf-model', 'url(assets/2d/Sneaker_Red_Blue.glb)');
+    } else if (selectedColor === 'Yellow_Green') {
+      modelEntity.setAttribute('gltf-model', 'url(assets/2d/Sneaker_Yellow_Green.glb)');
+    }
+  </script>
+</body>
+</html>
