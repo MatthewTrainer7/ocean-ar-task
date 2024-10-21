@@ -9,24 +9,20 @@
 }
 
 #shoes {
-  /* CSS for the back button */
-  /* Optionally, add some hover effect */
+  background-color: yellow;
+  height: 100vh;
+  width: 100vw;
 }
-#shoes .back-btn {
-  position: fixed; /* Ensures it's fixed to the screen */
-  top: 10px; /* Position it at the top */
-  left: 10px; /* Align it to the left side */
-  padding: 10px 20px;
-  background-color: #ff6347; /* A visible color, you can change it */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 1000; /* Ensures it's on top of all AR content */
+#shoes #buttonContainer {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
 }
-#shoes .back-btn:hover {
-  background-color: #ff4500;
+#shoes button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 18px;
 }
 
 /*# sourceMappingURL=styles.css.map */
