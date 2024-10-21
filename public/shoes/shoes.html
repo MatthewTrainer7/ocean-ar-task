@@ -4,17 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AR Test on Shoes Page</title>
-  <link rel="stylesheet" href="/styles.css">
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
   <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body id="shoes">
   <div id="buttonContainer">
-    <button id="sneaker1">Show Yellow Green</button>
-    <button id="sneaker2">Show Red Blue</button>
-    <button id="sneaker3">Show Blue Orange</button>
-    <button id="reset">Reset Position</button>
+    <button id="sneaker1" class="button">Show Yellow Green</button>
+    <button id="sneaker2" class="button">Show Red Blue</button>
+    <button id="sneaker3" class="button">Show Blue Orange</button>
+    <button id="reset" class="button">Reset Position</button>
+    <!-- Back to Home Button -->
+    <a href="/index.html" class="back-home">Back to Home</a>
   </div>
 
   <a-scene 
@@ -51,7 +53,7 @@
         id="sneaker3Model"
         gltf-model="url(https://raw.githubusercontent.com/MatthewTrainer7/ocean-ar-task/main/public/assets/3d/Sneaker_Blue_Orange.glb)" 
         scale="5 5 5" 
-        position="0 2 0"
+        position="0 0 0"
         rotation="0 90 0"
         gesture-handler="minScale: 0.25; maxScale: 10"
         visible="false"

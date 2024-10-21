@@ -1,18 +1,31 @@
 #shoes {
-  background-color: yellow;
-  height: 100vh;
-  width: 100vw;
-
   #buttonContainer {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 0;
+    left: 0;
+    width: 100vw;
     z-index: 10;
   }
 
   button {
     margin: 5px;
     padding: 10px;
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  .back-home {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .back-home:hover {
+    background-color: #ddd;
   }
 }
