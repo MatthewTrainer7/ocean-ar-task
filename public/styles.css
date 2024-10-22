@@ -1,6 +1,7 @@
 #home {
   margin: 0;
   background-color: #0A2F0A;
+  transition: background-color 1s ease;
 }
 #home .container {
   height: 84vh;
@@ -30,6 +31,7 @@
   text-align: center;
   letter-spacing: 2px;
   color: #E7B200;
+  transition: background-color 1s ease;
   animation: letterSpacingAnimation 2s infinite alternate ease-out;
 }
 @keyframes letterSpacingAnimation {
@@ -59,6 +61,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  transition: background-image 1s ease;
 }
 #home .container .image-container .ar-button {
   font-family: "Inter";
@@ -160,7 +163,7 @@
   background-color: #790000;
 }
 #home.crimson-wave h2 {
-  color: #790000;
+  color: #002D78;
 }
 #home.crimson-wave .image-container {
   background-image: url("/assets/images/bg--crimson-wave.png");

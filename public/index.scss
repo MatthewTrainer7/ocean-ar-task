@@ -13,6 +13,7 @@ $sunset-rush-bg: #B23300;
 #home {
   margin: 0;
   background-color: $lemon-surge-bg;
+  transition: background-color 1s ease;
 
   .container {
     height: 84vh;
@@ -43,6 +44,7 @@ $sunset-rush-bg: #B23300;
       text-align: center;
       letter-spacing: 2px;
       color: $lemon-surge-primary;
+      transition: background-color 1s ease;
     
       // Add animation
       animation: letterSpacingAnimation 2s infinite alternate ease-out;
@@ -77,6 +79,7 @@ $sunset-rush-bg: #B23300;
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+        transition: background-image 1s ease;
       }
 
       .ar-button {
@@ -198,7 +201,7 @@ $sunset-rush-bg: #B23300;
     background-color: $crimson-wave-primary;
 
     h2 {
-      color: $crimson-wave-primary;
+      color: $crimson-wave-secondary;
     }
   
     .image-container {
