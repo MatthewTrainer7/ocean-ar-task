@@ -1,8 +1,7 @@
-body {
+#home {
   margin: 0;
   background-color: #0A2F0A;
 }
-
 #home .container {
   height: 84vh;
   width: calc(100vw - 40px); /* Subtracting the padding on both sides (20px on each side) */
@@ -22,7 +21,6 @@ body {
   text-align: center;
 }
 #home .container h2 {
-  color: white;
   font-family: "microgramma-extended", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -30,9 +28,17 @@ body {
   margin-top: 0;
   margin-bottom: 20px;
   text-align: center;
-  leading-trim: both;
-  text-edge: cap;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
+  color: #E7B200;
+  animation: letterSpacingAnimation 2s infinite alternate ease-out;
+}
+@keyframes letterSpacingAnimation {
+  from {
+    letter-spacing: 2px;
+  }
+  to {
+    letter-spacing: 8px;
+  }
 }
 #home .container .image-container {
   border-radius: 30px;
@@ -64,17 +70,33 @@ body {
   color: white;
   margin: 0 50px 30px 50px;
   padding: 10px 20px;
-  background-color: #8b0000;
   border-radius: 1000px;
-  border: 2px solid #FFF;
+  border: 2px solid #ffffff;
   background: rgba(0, 87, 0, 0.5);
-  box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   height: 50px;
 }
-#home .container .image-container .ar-button img {
+#home .container .image-container .ar-button .ar-icon {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home .container .image-container .ar-button .ar-icon img {
   margin-right: 10px;
+  height: 30px;
+  animation: scaleAnimation 1s infinite alternate ease-in-out;
+}
+@keyframes scaleAnimation {
+  from {
+    height: 30px;
+  }
+  to {
+    height: 25px;
+  }
 }
 #home .container .colour-picker {
   display: flex;
@@ -112,30 +134,72 @@ body {
   width: 100%;
   height: 30px;
   border-radius: 100px;
-  background-color: #ddd;
+  background-color: #dddddd;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  border: 5px solid rgba(255, 255, 255, 0.1);
+  border: 5px solid rgba(255, 255, 255, 0.2);
 }
 #home .container .colour-picker .radio-container #radio--lemon-surge + label {
-  background-color: #ffcc00;
+  background: linear-gradient(90deg, #005700 25%, #E7B200 25%, #E7B200 75%, #005700 75%);
 }
 #home .container .colour-picker .radio-container #radio--crimson-wave + label {
-  background-color: #8b0000;
+  background: linear-gradient(90deg, #002D78 25%, #790000 25%, #790000 75%, #002D78 75%);
 }
 #home .container .colour-picker .radio-container #radio--sunset-rush + label {
-  background-color: #00008b;
+  background: linear-gradient(90deg, #B23300 25%, #00107C 25%, #00107C 75%, #B23300 75%);
 }
 #home .container .colour-picker .radio-container input[type=radio]:checked + label {
   border: 5px solid #fff;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
-.container.lemon-surge {
+#home.crimson-wave {
+  background-color: #790000;
+}
+#home.crimson-wave h2 {
+  color: #790000;
+}
+#home.crimson-wave .image-container {
+  background-image: url("/assets/images/bg--crimson-wave.png");
+}
+#home.crimson-wave .image-container .image {
+  background-image: url("/assets/images/crimson-wave.png");
+}
+#home.crimson-wave .image-container .ar-button {
+  background: rgba(0, 45, 120, 0.5);
+}
+#home.lemon-surge {
   background-color: #0A2F0A;
+}
+#home.lemon-surge h2 {
+  color: #E7B200;
+}
+#home.lemon-surge .image-container {
+  background-image: url("/assets/images/bg--lemon-surge.png");
+}
+#home.lemon-surge .image-container .image {
+  background-image: url("/assets/images/lemon-surge.png");
+}
+#home.lemon-surge .image-container .ar-button {
+  background: rgba(0, 87, 0, 0.5);
+}
+#home.sunset-rush {
+  background-color: #B23300;
+}
+#home.sunset-rush h2 {
+  color: #00107C;
+}
+#home.sunset-rush .image-container {
+  background-image: url("/assets/images/bg--sunset-rush.png");
+}
+#home.sunset-rush .image-container .image {
+  background-image: url("/assets/images/sunset-rush.png");
+}
+#home.sunset-rush .image-container .ar-button {
+  background: rgba(178, 51, 0, 0.5);
 }
 
 #shoes #buttonContainer {
