@@ -1,11 +1,141 @@
-#home {
-  background-color: greenyellow;
-  height: 100vh;
-  width: 100vw;
+body {
+  margin: 0;
+  background-color: #0A2F0A;
+}
+
+#home .container {
+  height: 84vh;
+  width: calc(100vw - 40px); /* Subtracting the padding on both sides (20px on each side) */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+#home .container h1 {
+  color: white;
+  font-family: "macula-line", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 55px;
+  text-align: center;
+}
+#home .container h2 {
+  color: white;
+  font-family: "microgramma-extended", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  letter-spacing: 5px;
+}
+#home .container .image-container {
+  border-radius: 30px;
+  background-image: url("/assets/images/bg--lemon-surge.png");
+  background-position: center;
+  background-size: 300%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  margin-bottom: 20px;
+}
+#home .container .image-container .image {
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/images/lemon-surge.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#home .container .image-container .ar-button {
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  margin: 0 50px 30px 50px;
+  padding: 10px 20px;
+  background-color: #8b0000;
+  border-radius: 1000px;
+  border: 2px solid #FFF;
+  background: rgba(0, 87, 0, 0.5);
+  box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  height: 50px;
+}
+#home .container .image-container .ar-button img {
+  margin-right: 10px;
+}
+#home .container .colour-picker {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 20px;
+}
+#home .container .colour-picker h3 {
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+#home .container .colour-picker .radio-container {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  gap: 15px;
+  align-self: stretch;
+}
+#home .container .colour-picker .radio-container input[type=radio] {
+  display: none;
+}
+#home .container .colour-picker .radio-container label {
+  width: 100%;
+  height: 30px;
+  border-radius: 100px;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border: 5px solid rgba(255, 255, 255, 0.1);
+}
+#home .container .colour-picker .radio-container #radio--lemon-surge + label {
+  background-color: #ffcc00;
+}
+#home .container .colour-picker .radio-container #radio--crimson-wave + label {
+  background-color: #8b0000;
+}
+#home .container .colour-picker .radio-container #radio--sunset-rush + label {
+  background-color: #00008b;
+}
+#home .container .colour-picker .radio-container input[type=radio]:checked + label {
+  border: 5px solid #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.container.lemon-surge {
+  background-color: #0A2F0A;
 }
 
 #shoes #buttonContainer {
