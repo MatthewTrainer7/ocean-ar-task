@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const gesturePrompt = document.querySelector('.gesture-prompt');
-  const homeButton = document.querySelector('.home-button');
   const colourPickerContainer = document.querySelector('.colour-picker-container');
   const scanPrompt = document.querySelector('.scan-prompt');
 
@@ -50,7 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
   marker.addEventListener('markerFound', () => {
     scanPrompt.style.display = 'none';
     gesturePrompt.style.display = 'flex';
-    // homeButton.style.display = 'block';
     colourPickerContainer.style.display = 'flex';
   });
 
@@ -58,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
   marker.addEventListener('markerLost', () => {
     scanPrompt.style.display = 'block';
     gesturePrompt.style.display = 'none';
-    // homeButton.style.display = 'none';
     colourPickerContainer.style.display = 'none';
   });
 });
