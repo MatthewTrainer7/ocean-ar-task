@@ -2,7 +2,7 @@
 
 ## Installing the project.
 
-1. Clone Project on terminal or download the code from https://github.com/MatthewTrainer7/ocean-ar-task
+1. Clone Project or download the code from https://github.com/MatthewTrainer7/ocean-ar-task and drag the folder in to your terminal
 ```bash
 # Clone using git
 git clone [https://github.com/arnoldclark/Ignition.git](https://github.com/MatthewTrainer7/ocean-ar-task.git)
