@@ -6,7 +6,8 @@
   "scripts": {
     "start": "concurrently \"nodemon server.js\" \"npm run watch-css\" \"browser-sync start --proxy http://localhost:3000 --files 'public/*'\"",
     "watch-css": "sass --watch public/styles.scss:public/styles.css",
-    "start-tunnel": "lt --port 3000 --subdomain oceanartask"
+    "start-tunnel": "lt --port 3000 --subdomain oceanartask",
+    "start-tunnel-ngrok": "ngrok http 3000"
   },
   "repository": {
     "type": "git",
