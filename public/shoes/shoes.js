@@ -1,44 +1,64 @@
-const sneaker1Model = document.querySelector('#sneaker1Model');
-const sneaker2Model = document.querySelector('#sneaker2Model');
-const sneaker3Model = document.querySelector('#sneaker3Model');
+document.addEventListener("DOMContentLoaded", () => {
+  const gesturePrompt = document.querySelector('.gesture-prompt');
+  const homeButton = document.querySelector('.home-button');
+  const colourPickerContainer = document.querySelector('.colour-picker-container');
+  const scanPrompt = document.querySelector('.scan-prompt');
 
-// Store original properties
-const originalProperties = {
-  sneaker1: { position: '0 0 0', rotation: '0 90 0', scale: '5 5 5' },
-  sneaker2: { position: '0 0 0', rotation: '0 90 0', scale: '5 5 5' },
-  sneaker3: { position: '0 0 0', rotation: '0 90 0', scale: '5 5 5' }
-};
-
-// Function to show the selected sneaker and hide the others
-function showSneaker(selectedModel) {
-  sneaker1Model.setAttribute('visible', false);
-  sneaker2Model.setAttribute('visible', false);
-  sneaker3Model.setAttribute('visible', false);
-  selectedModel.setAttribute('visible', true);
-}
-
-// Reset function to restore original properties
-function resetPosition() {
-  sneaker1Model.setAttribute('position', originalProperties.sneaker1.position);
-  sneaker1Model.setAttribute('rotation', originalProperties.sneaker1.rotation);
-  sneaker1Model.setAttribute('scale', originalProperties.sneaker1.scale);
+  const sneaker1Model = document.getElementById('sneaker1Model');
+  const sneaker2Model = document.getElementById('sneaker2Model');
+  const sneaker3Model = document.getElementById('sneaker3Model');
   
-  sneaker2Model.setAttribute('position', originalProperties.sneaker2.position);
-  sneaker2Model.setAttribute('rotation', originalProperties.sneaker2.rotation);
-  sneaker2Model.setAttribute('scale', originalProperties.sneaker2.scale);
+  const radioButtons = document.querySelectorAll('input[name="color"]');
+  const marker = document.getElementById('marker');
 
-  sneaker3Model.setAttribute('position', originalProperties.sneaker3.position);
-  sneaker3Model.setAttribute('rotation', originalProperties.sneaker3.rotation);
-  sneaker3Model.setAttribute('scale', originalProperties.sneaker3.scale);
-}
+  // Hide gesture prompt, home button, and colour picker on load
+  gesturePrompt.style.display = 'none';
+  // homeButton.style.display = 'none';
+  colourPickerContainer.style.display = 'none';
 
-// Add event listeners to the buttons
-document.getElementById('sneaker1').addEventListener('click', () => showSneaker(sneaker1Model)); // Yellow Green
-document.getElementById('sneaker2').addEventListener('click', () => showSneaker(sneaker2Model)); // Red Blue
-document.getElementById('sneaker3').addEventListener('click', () => showSneaker(sneaker3Model)); // Blue Orange
-document.getElementById('reset').addEventListener('click', resetPosition); // Reset
+  // Function to set the active radio button and display the corresponding model
+  const setActiveModel = (color) => {
+    sneaker1Model.setAttribute('visible', color === 'lemon-surge');
+    sneaker2Model.setAttribute('visible', color === 'crimson-wave');
+    sneaker3Model.setAttribute('visible', color === 'sunset-rush');
+  };
 
-// Log marker events to check tracking
-const marker = document.querySelector('#marker');
-marker.addEventListener('markerFound', () => console.log('Marker found'));
-marker.addEventListener('markerLost', () => console.log('Marker lost'));
+  // Function to get query parameter from URL
+  const getQueryParam = (param) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  };
+
+  // Set active radio button based on URL query param
+  const sneakerColor = getQueryParam('sneaker');
+  if (sneakerColor) {
+    const selectedRadio = document.querySelector(`input[value="${sneakerColor}"]`);
+    if (selectedRadio) {
+      selectedRadio.checked = true;
+      setActiveModel(sneakerColor);  // Set the corresponding model to visible
+    }
+  }
+
+  // Add event listeners to radio buttons to change model when the radio button changes
+  radioButtons.forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      setActiveModel(e.target.value);
+    });
+  });
+
+  // When the marker is found, show the gesture prompt, home button, and colour picker, and hide scan prompt
+  marker.addEventListener('markerFound', () => {
+    scanPrompt.style.display = 'none';
+    gesturePrompt.style.display = 'flex';
+    // homeButton.style.display = 'block';
+    colourPickerContainer.style.display = 'flex';
+  });
+
+  // When the marker is lost, show the scan prompt again
+  marker.addEventListener('markerLost', () => {
+    scanPrompt.style.display = 'block';
+    gesturePrompt.style.display = 'none';
+    // homeButton.style.display = 'none';
+    colourPickerContainer.style.display = 'none';
+  });
+});

@@ -1,32 +1,87 @@
+$lemon-surge-primary: #E7B200;
+$lemon-surge-secondary: #005700;
+$lemon-surge-bg: #0A2F0A;
+
+$crimson-wave-primary: #790000;
+$crimson-wave-secondary: #002D78;
+$crimson-wave-bg: #000028;
+
+$sunset-rush-primary: #00107C;
+$sunset-rush-secondary: #B23300;
+$sunset-rush-bg: #B23300;
+
 #shoes {
   .scan-prompt {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1); // Starting scale
     text-align: center;
     z-index: 100;
     pointer-events: none;
-    padding: 30px 20px;
+    padding: 20px 30px;
     background-color: rgba(0, 0, 0, 0.50);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
-
+    animation: scanQR 2s infinite ease-in-out; // Apply the animation
+  
     p {
       color: #fff;
-      font-family: 'Inter';
-      font-weight: 300;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
       font-size: 12px;
+      margin-top: 10px;
+      margin-bottom: 0;
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: 2px;
+    }
+  }
+
+  .gesture-prompt {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    pointer-events: none;
+    gap: 10px;
+    //animation: scanQR 2s infinite ease-in-out;
+  
+    p {
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: 2px;
       margin: 0;
     }
   }
+  
+  // Define the keyframe animation
+  @keyframes scanQR {
+    0% {
+      transform: translate(-50%, -50%) scale(1); // Start at full scale
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(0.9); // Shrink to 0.8
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1); // Return to full scale
+    }
+  }  
 
   .home-button {
     position: fixed;
     top: 10px;
     left: 10px;
-    //transform: translate(-50%, -50%);
     text-align: center;
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.50);
@@ -43,33 +98,81 @@
     }
   }
 
-  #buttonContainer {
-    position: absolute;
-    top: 0;
+  .colour-picker-container {
+    position: fixed;
+    bottom: 0;
     left: 0;
-    width: 100vw;
-    z-index: 10;
-  }
-
-  button {
-    margin: 5px;
+    z-index: 100;
+    display: flex;
+    width: calc(100% - 20px);
     padding: 10px;
-    font-size: 16px;
-  }
 
-  .back-home {
-    display: inline-block;
-    margin: 5px;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #f0f0f0;
-    color: #333;
-    text-decoration: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  .back-home:hover {
-    background-color: #ddd;
+    .colour-picker {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+      background-color: rgba(0, 0, 0, 0.50);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 20px;
+      width: 100%;
+  
+      h3 {
+        font-family: 'Inter', sans-serif;
+        color: #fff;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+  
+      .radio-container {
+        display: flex;
+        height: 30px;
+        align-items: center;
+        gap: 15px;
+        align-self: stretch;
+  
+        input[type="radio"] {
+          display: none;
+        }
+  
+        label {
+          width: 100%;
+          height: 30px;
+          border-radius: 100px;
+          background-color: #dddddd;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+          border: 5px solid rgba(255, 255, 255, 0.20);
+        }
+  
+        // Colors for each button
+        #radio--lemon-surge + label {
+          background: linear-gradient(90deg, $lemon-surge-secondary 25%, $lemon-surge-primary 25%, $lemon-surge-primary 75%, $lemon-surge-secondary 75%);
+        }
+        #radio--crimson-wave + label {
+          background: linear-gradient(90deg, $crimson-wave-secondary 25%, $crimson-wave-primary 25%, $crimson-wave-primary 75%, $crimson-wave-secondary 75%);
+        }
+        #radio--sunset-rush + label {
+          background: linear-gradient(90deg, $sunset-rush-secondary 25%, $sunset-rush-primary 25%, $sunset-rush-primary 75%, $sunset-rush-secondary 75%);
+        }
+  
+        // Highlight selected button with a white border
+        input[type="radio"]:checked + label {
+          border: 5px solid #fff;
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+      }
+    }
   }
 }

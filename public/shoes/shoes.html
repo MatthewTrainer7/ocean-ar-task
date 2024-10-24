@@ -4,17 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AR Test on Shoes Page</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
   <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
 </head>
 <body id="shoes">
 
   <div class="scan-prompt">
     <img src="/assets/images/scan-icon.svg" alt="">
     <p>Scan QR code</p>
+  </div>
+
+  <div class="gesture-prompt">
+    <img src="/assets/images/rotate-icon.svg" alt="">
+    <p>Rotate & Scale</p>
+    <img src="/assets/images/scale-icon.svg" alt="">
   </div>
 
   <!-- <div id="buttonContainer">
@@ -25,24 +31,28 @@
     <a href="/index.html" class="back-home">Back to Home</a>
   </div> -->
 
-  <a href="/index.html" class="home-button"><img src="/assets/images/back-icon.svg"></a>
+  <a href="/" class="home-button"><img src="/assets/images/back-icon.svg"></a>
+  
+  <div class="colour-picker-container">
 
-  <!-- <div class="colour-picker">
+    <div class="colour-picker">
       
-    <h3>Pick a colour:</h3>
-
-    <div class="radio-container">
-      <input type="radio" id="radio--lemon-surge" name="color" value="lemon-surge" checked />
-      <label for="radio--lemon-surge"></label>
+      <h3>Change colour:</h3>
   
-      <input type="radio" id="radio--crimson-wave" name="color" value="crimson-wave" />
-      <label for="radio--crimson-wave"></label>
+      <div class="radio-container">
+        <input type="radio" id="radio--lemon-surge" name="color" value="lemon-surge" checked />
+        <label for="radio--lemon-surge"></label>
+    
+        <input type="radio" id="radio--crimson-wave" name="color" value="crimson-wave" />
+        <label for="radio--crimson-wave"></label>
+    
+        <input type="radio" id="radio--sunset-rush" name="color" value="sunset-rush" />
+        <label for="radio--sunset-rush"></label>
+      </div>
   
-      <input type="radio" id="radio--sunset-rush" name="color" value="sunset-rush" />
-      <label for="radio--sunset-rush"></label>
     </div>
 
-  </div> -->
+  </div>
 
   <a-scene 
     arjs

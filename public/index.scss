@@ -10,14 +10,23 @@ $sunset-rush-primary: #00107C;
 $sunset-rush-secondary: #B23300;
 $sunset-rush-bg: #B23300;
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 #home {
   margin: 0;
   background-color: $lemon-surge-bg;
   transition: background-color 1s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 
   .container {
-    height: 84vh;
-    width: calc(100vw - 40px); /* Subtracting the padding on both sides (20px on each side) */
+    height: 100%;
+    width: calc(100% - 40px); /* Subtracting the padding on both sides (20px on each side) */
     display: flex;
     flex-direction: column;
     padding: 20px;
