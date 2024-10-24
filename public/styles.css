@@ -205,6 +205,45 @@
   background: rgba(178, 51, 0, 0.5);
 }
 
+#shoes .scan-prompt {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 100;
+  pointer-events: none;
+  padding: 30px 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+}
+#shoes .scan-prompt p {
+  color: #fff;
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 12px;
+  margin: 0;
+}
+#shoes .home-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  text-align: center;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1000px;
+  margin: 0;
+  height: 48px;
+  width: 48px;
+}
+#shoes .home-button img {
+  height: 48px;
+  width: 48px;
+}
 #shoes #buttonContainer {
   position: absolute;
   top: 0;

@@ -8,16 +8,41 @@
   <script src="https://cdn.rawgit.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
   <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
 </head>
 <body id="shoes">
-  <div id="buttonContainer">
+
+  <div class="scan-prompt">
+    <img src="/assets/images/scan-icon.svg" alt="">
+    <p>Scan QR code</p>
+  </div>
+
+  <!-- <div id="buttonContainer">
     <button id="sneaker1" class="button">Show Yellow Green</button>
     <button id="sneaker2" class="button">Show Red Blue</button>
     <button id="sneaker3" class="button">Show Blue Orange</button>
     <button id="reset" class="button">Reset Position</button>
-    <!-- Back to Home Button -->
     <a href="/index.html" class="back-home">Back to Home</a>
-  </div>
+  </div> -->
+
+  <a href="/index.html" class="home-button"><img src="/assets/images/back-icon.svg"></a>
+
+  <!-- <div class="colour-picker">
+      
+    <h3>Pick a colour:</h3>
+
+    <div class="radio-container">
+      <input type="radio" id="radio--lemon-surge" name="color" value="lemon-surge" checked />
+      <label for="radio--lemon-surge"></label>
+  
+      <input type="radio" id="radio--crimson-wave" name="color" value="crimson-wave" />
+      <label for="radio--crimson-wave"></label>
+  
+      <input type="radio" id="radio--sunset-rush" name="color" value="sunset-rush" />
+      <label for="radio--sunset-rush"></label>
+    </div>
+
+  </div> -->
 
   <a-scene 
     arjs
